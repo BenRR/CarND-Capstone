@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 from styx_msgs.msg import TrafficLight
 
+MAJOR_PIX_NUMBER = 50
 
 class TLClassifier(object):
     def __init__(self):
@@ -31,18 +32,18 @@ class TLClassifier(object):
         c = self.classify(img,
                           [0, 125, 125],
                           [15, 255, 255])
-        if c > 50:
+        if c > MAJOR_PIX_NUMBER:
             return TrafficLight.RED
 
         c = self.classify(img,
                           [28, 125, 125],
                           [47, 255, 255])
-        if c > 50:
+        if c > MAJOR_PIX_NUMBER:
             return TrafficLight.YELLOW
 
         c = self.classify(img,
                           [63, 125, 125],
                           [99, 255, 255])
-        if c > 50:
+        if c > MAJOR_PIX_NUMBER:
             return TrafficLight.GREEN
         return TrafficLight.UNKNOWN
