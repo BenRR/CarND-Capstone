@@ -40,7 +40,7 @@ class Controller(object):
 
         vel_err = linear_vel - current_vel
         self.last_vel = current_vel
-        current_time = rspy.get_time()
+        current_time = rospy.get_time()
         sample_time = current_time - self.last_time
         self.last_time = current_time
 
